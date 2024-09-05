@@ -3,42 +3,10 @@
     transition: all 0.5s;
     z-index: 997;
     height: 60px;
-    box-shadow: 0px 2px 20px rgba(1,41,112,0.1);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     padding-left: 20px;
 }
-
-
-/* logo css  */
-.logo{
-    line-height: 1;
-}
-
-@media ( min-width : 1200px){
-    .logo{
-        width: 280px;
-    }
-}
-
-.logo img {
-    max-height: 26px;
-    margin-right: 6px;
-}
-
-.logo span{
-    font-size: 26px;
-    font-weight: 700;
-    color: #012970;
-    font-family: 'Nunito', 'sans-serif';
-}
-
-/* navbar */
-
-/* src/components/Header.css */
-/* .header {
-    padding: 0 20px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  } */
   
   .navbar-brand {
     font-size: 1.5rem;
@@ -48,7 +16,21 @@
   .nav-link {
     margin-right: 1rem;
   }
-  
+
+  .navbar-brand img {
+    line-height: 1;
+    max-height: 50px;
+    margin-right: 6px;
+    width: 100px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 5%; /* Optional: make the logo circular */
+  }
+  .navbar-brand span {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0b0d11;
+  }
 
 
 

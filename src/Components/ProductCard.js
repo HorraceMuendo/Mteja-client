@@ -1,7 +1,7 @@
 // src/components/ProductCard.js
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import '../Styles/ProductCard.css'; // Ensure this CSS file exists
+import '../Styles/ProductCard.css'; 
 
 function ProductCard({ name, description, details }) {
   return (

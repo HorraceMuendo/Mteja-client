@@ -1,6 +1,6 @@
 // src/pages/Products.js
 import React, { useState, useEffect } from 'react';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../Components/ProductCard.js';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function Products() {

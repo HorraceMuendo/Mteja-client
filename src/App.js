@@ -5,6 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Products from './Pages/Products';
 import Enquiries from './Pages/Enquiries';
+import Complaints from './Pages/Complains';
+import Compliments from './Pages/Compliments';
+import Contact from './Pages/ContactUs';
+import Home from './Pages/Home';
 
 function App() {
   return (
@@ -12,10 +16,12 @@ function App() {
     <Router>
     <Header />
     <Routes>
-      {/* <Route path="/" element={<Home />} /> Replace with your Home component */}
+      <Route path="/" element={<Home />} /> 
       <Route path="/products" element={<Products />} />
       <Route path="/enquiries" element={<Enquiries />} />
-      {/* <Route path="/contact" element={<Contact />} /> Example route */}
+      <Route path="/compliments" element={<Compliments />} />
+      <Route path="/complaints" element={<Complaints />} />
+      <Route path="/contactus" element={<Contact />} /> 
     </Routes>
   </Router>
 

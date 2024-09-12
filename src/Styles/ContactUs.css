@@ -1,4 +1,6 @@
-/* src/Styles/Enquiries.css */
+
+
+/* src/Styles/Contact.css */
 .mt-5 {
   padding-top: 60px;
     margin-top: 3rem;
@@ -6,5 +8,9 @@
   
   .mb-4 {
     margin-bottom: 1.5rem;
+  }
+  
+  .text-center {
+    text-align: center;
   }
   

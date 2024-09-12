@@ -1,7 +1,7 @@
 // src/pages/Complaints.js
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import '../Styles/Complaintss.css'; // Create this CSS file for styling if needed
+import '../Styles/Complaints.css'; // Create this CSS file for styling if needed
 
 function Complaints() {
   const [formData, setFormData] = useState({

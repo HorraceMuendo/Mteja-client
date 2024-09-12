@@ -4,6 +4,7 @@ import Header from './Components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Products from './Pages/Products';
+import Enquiries from './Pages/Enquiries';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
     <Routes>
       {/* <Route path="/" element={<Home />} /> Replace with your Home component */}
       <Route path="/products" element={<Products />} />
-      {/* Add more routes here as needed */}
+      <Route path="/enquiries" element={<Enquiries />} />
       {/* <Route path="/contact" element={<Contact />} /> Example route */}
     </Routes>
   </Router>

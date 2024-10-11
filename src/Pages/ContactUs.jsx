@@ -1,49 +1,49 @@
 // src/pages/Contact.js
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Container, Form, Button } from 'react-bootstrap';
 import '../Styles/ContactUs.css'; // Create this CSS file for styling if needed
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send formData to a server or API
-    console.log('Contact form submitted:', formData);
-    // Reset form after submission (optional)
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+const Contact = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject]=useState('');
+  const [message, setMessage]=useState('');
+
+const handleAddContact = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post ('http://localhost:6969/contact/add',{
+      name: name,
+      email:email,
+      subject: subject,
+      message: message
     });
-  };
+    console.log('contact info sent: ', response.data)
+    setName('');
+    setEmail('');
+    setSubject('');
+    setMessage('');
+  } catch (error) {
+    console.error('There was an error posting the enquiry, ', error)
+  }
+};
+
 
   return (
     <Container className="mt-5">
       <h1 className="mb-4 text-center">Contact Us</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleAddContact}>
         <Form.Group controlId="formName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter your name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </Form.Group>
@@ -53,8 +53,8 @@ function Contact() {
             type="email"
             placeholder="Enter your email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </Form.Group>
@@ -64,8 +64,8 @@ function Contact() {
             type="text"
             placeholder="Enter subject"
             name="subject"
-            value={formData.subject}
-            onChange={handleChange}
+            value={subject}
+            onChange={(e)=> setSubject (e.target.value)}
             required
           />
         </Form.Group>
@@ -76,8 +76,8 @@ function Contact() {
             rows={4}
             placeholder="Your message"
             name="message"
-            value={formData.message}
-            onChange={handleChange}
+            value={message}
+            onChange={(e)=>setMessage(e.target.value)}
             required
           />
         </Form.Group>

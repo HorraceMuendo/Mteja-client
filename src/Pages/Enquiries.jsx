@@ -1,47 +1,43 @@
 // src/pages/Enquiries.js
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Container, Form, Button } from 'react-bootstrap';
 import '../Styles/Enquiries.css'; // Create this CSS file for styling if needed
 
-function Enquiries() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    productDetails: ''
-  });
+const Enquiries = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [productdetails, setProductdetails]=useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
+const handleAddEnquiries = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post ('http://localhost:6969/enquiries/add',{
+      name: name,
+      email:email,
+      productdetails: productdetails,
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send formData to a server or API
-    console.log('Form submitted:', formData);
-    // Reset form after submission (optional)
-    setFormData({
-      name: '',
-      email: '',
-      productDetails: ''
-    });
-  };
+    console.log('Enquiry sent: ', response.data)
+    setName('');
+    setEmail('');
+    setProductdetails('');
+  } catch (error) {
+    console.error('There was an error posting the enquiry, ', error)
+  }
+};
 
   return (
     <Container className="mt-5">
       <h1 className="mb-4">Enquiries</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleAddEnquiries}>
         <Form.Group controlId="formName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter your name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e)=> setName(e.target.value)}
             required
           />
         </Form.Group>
@@ -51,8 +47,8 @@ function Enquiries() {
             type="email"
             placeholder="Enter your email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=> setEmail(e.target.value)}
             required
           />
         </Form.Group>
@@ -63,8 +59,8 @@ function Enquiries() {
             rows={3}
             placeholder="Provide details about the product"
             name="productDetails"
-            value={formData.productDetails}
-            onChange={handleChange}
+            value={productdetails}
+            onChange={(e)=> setProductdetails(e.target.value)}
             required
           />
         </Form.Group>

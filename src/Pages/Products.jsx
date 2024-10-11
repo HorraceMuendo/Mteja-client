@@ -8,7 +8,7 @@ function Products() {
 
   useEffect(() => {
     // Replace with your API endpoint
-    fetch('https://api.example.com/products')
+    fetch('http://localhost:6969/products/list')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));

@@ -1,47 +1,43 @@
 // src/pages/Complaints.js
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import axios from 'axios';
 import '../Styles/Complaints.css'; // Create this CSS file for styling if needed
 
-function Complaints() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    Complaints: ''
-  });
+const AddComplain = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [ complain, setComplain]=useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
+const handleAddComplain= async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post ('http://localhost:6969/customers/complains/add',{
+      name: name,
+      email:email,
+      complain: complain,
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send formData to a server or API
-    console.log('Complaints submitted:', formData);
-    // Reset form after submission (optional)
-    setFormData({
-      name: '',
-      email: '',
-      Complaints: ''
-    });
-  };
+    console.log('Compliment sent: ', response.data)
+    setName('');
+    setEmail('');
+    setComplain('');
+  } catch (error) {
+    console.error('There was an error posting the compliment, ', error)
+  }
+};
 
   return (
     <Container className="mt-5">
       <h1 className="mb-4">Complaints</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleAddComplain}>
         <Form.Group controlId="formName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter your name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName (e.target.value)}
             required
           />
         </Form.Group>
@@ -51,8 +47,8 @@ function Complaints() {
             type="email"
             placeholder="Enter your email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </Form.Group>
@@ -63,8 +59,8 @@ function Complaints() {
             rows={3}
             placeholder="Share your Complaints here"
             name="Complaints"
-            value={formData.Complaints}
-            onChange={handleChange}
+            value={complain}
+            onChange={(e) => setComplain(e.target.value)}
             required
           />
         </Form.Group>
@@ -76,4 +72,4 @@ function Complaints() {
   );
 }
 
-export default Complaints;
+export default AddComplain;

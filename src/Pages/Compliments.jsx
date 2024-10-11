@@ -1,47 +1,43 @@
 // src/pages/Compliments.js
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Container, Form, Button } from 'react-bootstrap';
 import '../Styles/Compliments.css'; // Create this CSS file for styling if needed
 
-function Compliments() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    compliment: ''
-  });
+const AddCompliment = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [ compliment, setCompliment]=useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
+const handleAddCompliment = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post ('http://localhost:6969/customers/compliments/add',{
+      name: name,
+      email:email,
+      compliment: compliment,
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send formData to a server or API
-    console.log('Compliment submitted:', formData);
-    // Reset form after submission (optional)
-    setFormData({
-      name: '',
-      email: '',
-      compliment: ''
-    });
-  };
+    console.log('Compliment sent: ', response.data)
+    setName('');
+    setEmail('');
+    setCompliment('');
+  } catch (error) {
+    console.error('There was an error posting the compliment, ', error)
+  }
+};
 
   return (
     <Container className="mt-5">
       <h1 className="mb-4">Compliments</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleAddCompliment}>
         <Form.Group controlId="formName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter your name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName (e.target.value)}
             required
           />
         </Form.Group>
@@ -51,8 +47,8 @@ function Compliments() {
             type="email"
             placeholder="Enter your email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=> setEmail(e.target.value)}
             required
           />
         </Form.Group>
@@ -63,8 +59,8 @@ function Compliments() {
             rows={3}
             placeholder="Share your compliment here"
             name="compliment"
-            value={formData.compliment}
-            onChange={handleChange}
+            value={compliment}
+            onChange={(e) => setCompliment(e.target.value)}
             required
           />
         </Form.Group>
@@ -76,4 +72,4 @@ function Compliments() {
   );
 }
 
-export default Compliments;
+export default AddCompliment;

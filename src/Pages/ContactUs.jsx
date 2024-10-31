@@ -5,7 +5,6 @@ import { Container, Form, Button } from 'react-bootstrap';
 import '../Styles/ContactUs.css'; // Create this CSS file for styling if needed
 
 
-
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

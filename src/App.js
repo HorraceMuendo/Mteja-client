@@ -9,6 +9,8 @@ import Complaints from './Pages/Complains';
 import Compliments from './Pages/Compliments';
 import Contact from './Pages/ContactUs';
 import Home from './Pages/Home';
+import Login from './Pages/Login';
+import Signup from './Pages/Signup';
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
       <Route path="/compliments" element={<Compliments />} />
       <Route path="/complaints" element={<Complaints />} />
       <Route path="/contactus" element={<Contact />} /> 
+      <Route path="/login" element={<Login />} /> 
+      <Route path="/signup" element={<Signup />} /> 
+
     </Routes>
   </Router>
 

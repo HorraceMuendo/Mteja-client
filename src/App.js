@@ -11,29 +11,43 @@ import Contact from './Pages/ContactUs';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
+import LandingPage from './Pages/LandingPage';
 
 function App() {
   return (
 
+
+
     <Router>
-    <Header />
     <Routes>
-      <Route path="/" element={<Home />} /> 
+      <Route path="/" element={<LandingPage />} /> 
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="*"
+        element={
+          <div className='grid-container'>
+            <Header/>
+            <Routes>
+            <Route path="/" element={<Home />} /> 
       <Route path="/products" element={<Products />} />
       <Route path="/enquiries" element={<Enquiries />} />
       <Route path="/compliments" element={<Compliments />} />
       <Route path="/complaints" element={<Complaints />} />
       <Route path="/contactus" element={<Contact />} /> 
       <Route path="/login" element={<Login />} /> 
-      <Route path="/signup" element={<Signup />} /> 
+      <Route path="/signup" element={<Signup />} />           
 
+
+
+
+            </Routes>
+          </div>
+        }
+      />
     </Routes>
   </Router>
 
-    // <div className="App">
-    // <Header/>
-    // <Products/>
-    // </div>
   );
 }
 

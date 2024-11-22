@@ -29,7 +29,7 @@ function App() {
           <div className='grid-container'>
             <Header/>
             <Routes>
-            <Route path="/" element={<Home />} /> 
+            <Route path="/home" element={<Home />} /> 
       <Route path="/products" element={<Products />} />
       <Route path="/enquiries" element={<Enquiries />} />
       <Route path="/compliments" element={<Compliments />} />

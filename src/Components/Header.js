@@ -46,7 +46,7 @@ function Header() {
       </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/home ">Home</Nav.Link>
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
           <Nav.Link as={Link} to="/products">Products</Nav.Link>
           <Nav.Link as={Link} to="/enquiries">Enquiries</Nav.Link>
           <Nav.Link as={Link} to="/compliments">Compliments</Nav.Link>

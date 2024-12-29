@@ -6,7 +6,7 @@ const TrackPageVisit = ({ customerId, pageUrl, visitType }) => {
         // Function to send visit data to the backend
         const trackVisit = async () => {
             try {
-                const response = await axios.post('http://localhost:6969/visits/add', {
+                const response = await axios.post('http://localhost:6969/analytics/add', {
                     customer_details_id: customerId,
                     pageUrl: pageUrl,
                     visitType: visitType
@@ -25,3 +25,10 @@ const TrackPageVisit = ({ customerId, pageUrl, visitType }) => {
 };
 
 export default TrackPageVisit;
+
+
+
+
+
+
+

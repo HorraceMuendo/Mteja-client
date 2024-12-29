@@ -20,16 +20,16 @@ function App() {
 
     <Router>
     <Routes>
-      <Route path="/" element={<LandingPage />} /> 
+      {/* <Route path="/" element={<LandingPage />} /> 
       <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login />} /> */}
       <Route
         path="*"
         element={
           <div className='grid-container'>
             <Header/>
             <Routes>
-            <Route path="/home" element={<Home />} /> 
+            <Route path="/" element={<Home />} /> 
       <Route path="/products" element={<Products />} />
       <Route path="/enquiries" element={<Enquiries />} />
       <Route path="/compliments" element={<Compliments />} />

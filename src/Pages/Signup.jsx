@@ -21,7 +21,7 @@ function Signup () {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:6969/users/signup', values)
+    axios.post('http://localhost:6969/customer_details/signup', values)
       .then(res => {
         console.log("Successfully Registered")
         navigate('/dashboard'); // Redirect to login page after successful signup

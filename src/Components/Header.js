@@ -52,6 +52,7 @@ function Header() {
           <Nav.Link as={Link} to="/compliments">Compliments</Nav.Link>
           <Nav.Link as={Link} to="/complaints">Complaints</Nav.Link>
           <Nav.Link as={Link} to="/contactus">Contact Us</Nav.Link>
+          <Nav.Link as={Link} to="/logout">Log Out</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

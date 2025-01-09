@@ -12,6 +12,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import LandingPage from './Pages/LandingPage';
+import LogoutPage from './Pages/Log Out';
 
 function App() {
   return (
@@ -20,9 +21,9 @@ function App() {
 
     <Router>
     <Routes>
-      {/* <Route path="/" element={<LandingPage />} /> 
+      <Route path="/" element={<LandingPage />} /> 
       <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} /> */}
+      <Route path="/login" element={<Login />} />
       <Route
         path="*"
         element={
@@ -36,9 +37,8 @@ function App() {
       <Route path="/complaints" element={<Complaints />} />
       <Route path="/contactus" element={<Contact />} /> 
       <Route path="/login" element={<Login />} /> 
-      <Route path="/signup" element={<Signup />} />           
-
-
+      <Route path="/signup" element={<Signup />} />    
+      <Route path="/logout" element={<LogoutPage />} />    
 
 
             </Routes>
